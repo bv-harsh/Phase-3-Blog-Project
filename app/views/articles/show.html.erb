@@ -1,0 +1,24 @@
+<h2>Articles</h2>
+<% if @article %>
+	<p>
+	<strong>Title:</strong>
+	<%= @article.title %>
+	</p>
+
+	<p>
+	<strong>Body:</strong>
+	<%= @article.body %>
+	</p>
+	<% if user_signed_in? && current_user.id == @article.user_id %>
+		<ul>
+			<li>
+				<%= link_to "Edit", edit_user_article_path(@article.user_id, @article.id) %></li>
+			<li>
+				<%= link_to "Destroy", 
+										user_article_path,
+										method: :delete,
+										data: { confirm: "Are you sure?" } %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>

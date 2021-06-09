@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+	<h2>Articles</h2>
+
+	<% current_user.articles.each do |article| %>
+		<p>
+		<strong>Title:</strong>
+		<%= link_to article.title, user_article_path(article.user_id, article.id) %>
+		</p>
+	<% end %>
+
+	<%= link_to "Create new article",new_user_article_path(current_user) %>
+<% end %>
+
