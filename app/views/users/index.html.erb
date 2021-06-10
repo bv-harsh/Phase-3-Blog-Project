@@ -1,0 +1,22 @@
+<% if flash[:alert] %>
+	<% flash[:alert] %>
+	<% flash[:alert] = nil %>
+<% end %>
+<% if user_signed_in? %>
+	<h2>Articles</h2>
+
+	<% current_user.articles.each do |article| %>
+		<p>
+		<strong>Title:</strong>
+		<%= link_to article.title, user_article_path(article.user_id, article.id) %><br>
+		<%= link_to "Edit", edit_user_article_path(article.user_id, article.id) %>
+		<%= link_to "Destroy", 
+			user_article_path(article.user_id, article.id),
+			method: :delete,
+			data: { confirm: "Are you sure?" } %>
+		</p>
+	<% end %>
+
+	<%= link_to "Create new article",new_user_article_path(current_user) %>
+<% end %>
+
