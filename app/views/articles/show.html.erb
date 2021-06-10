@@ -9,16 +9,21 @@
 	<strong>Body:</strong>
 	<%= @article.body %>
 	</p>
-	<% if user_signed_in? && current_user.id == @article.user_id %>
+	<% if user_signed_in?%>
 		<ul>
 			<li>
 				<%= link_to "Edit", edit_user_article_path(@article.user_id, @article.id) %></li>
 			<li>
 				<%= link_to "Destroy", 
-										user_article_path,
-										method: :delete,
-										data: { confirm: "Are you sure?" } %>
+					user_article_path,
+					method: :delete,
+					data: { confirm: "Are you sure?" } %>
 			</li>
 		</ul>
 	<% end %>
+	<% if flash[:alert] %>
+		<%= flash[:alert] %>
+		<% flash[:alert] = nil %>
+	<% end %>
+
 <% end %>
