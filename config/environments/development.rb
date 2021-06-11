@@ -74,4 +74,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+	ENV['GOOGLE_CLIENT_ID'] = '575210910646-j3udhi1n7rq5cq5mikpg44r3922odufr.apps.googleusercontent.com'
+	ENV['GOOGLE_CLIENT_SECRET'] = 'UOjLFYAD2fH9HiXKU_y_gY2d'
 end

@@ -11,6 +11,8 @@ gem 'thor', '~> 1.0'
 gem 'devise'
 gem 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
